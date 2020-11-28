@@ -7,7 +7,7 @@ const Birthday = ({ birthdays }) => {
       <StyledContainer>
         <h1>All Birthdays</h1>
         {birthdays.map((birthday) => (
-          <StyledCard>
+          <StyledCard key={birthday.id}>
             <h3>{birthday.name}</h3>
             <p>{birthday.date}</p>
           </StyledCard>

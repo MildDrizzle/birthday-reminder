@@ -43,9 +43,14 @@ const StyledLi = styled.li`
   margin: 0rem 0.3rem;
   background: #6f00ff;
   border-radius: 10rem;
+  transition: 0.5s ease-in-out;
+  box-shadow: 0.01rem 0.01rem 0.1rem 0.1rem rgba(0, 0, 0, 0.8);
   &:hover {
     color: #6f00ff;
     background: black;
+  }
+  &:focus {
+    outline: none;
   }
 `;
 

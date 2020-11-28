@@ -8,7 +8,7 @@ import GlobalStyles from "./components/GlobalStyles";
 
 function App() {
   const [birthdays, setBirthdays] = useState([
-    { name: "Kishan Sheth", date: "21 APril" },
+    { id: 1, name: "Kishan Sheth", date: "21 APril" },
   ]);
 
   return (
