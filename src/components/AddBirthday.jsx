@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import Input from "./Input";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
+const detect = require("detect-gender");
 
 const AddBirthday = ({ birthdays, setBirthdays }) => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    setBirthdays([...birthdays, { id: uuidv4(), name, date }]);
+    const gender = await detect(`${name.split(" ")[0]}`);
+    setBirthdays([...birthdays, { id: uuidv4(), name, date, gender }]);
     setName("");
     setDate("");
   };

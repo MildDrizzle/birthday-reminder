@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import men1 from "../avatar/girls/5.png";
+import male from "../avatar/boys/5.png";
+import female from "../avatar/girls/4.png";
 
 const Birthday = ({ birthdays }) => {
   return (
@@ -11,7 +12,7 @@ const Birthday = ({ birthdays }) => {
           <StyledCard key={birthday.id}>
             <div>
               <span>
-                <img src={men1} alt="" />
+                <img src={birthday.gender === "male" ? male : female} alt="" />
               </span>
               <span>
                 <h3>{birthday.name}</h3>
