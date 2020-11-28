@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Birthday Reminder",
+  "name": "Birthday Reminder App Using React",
   "icons": [
     {
       "src": "favicon.ico",

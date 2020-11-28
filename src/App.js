@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import AddBirthday from "./components/AddBirthday";
+import Birthday from "./components/Birthday";
+import Navbar from "./components/Navbar";
+import { Switch, Route } from "react-router-dom";
+import GlobalStyles from "./components/GlobalStyles";
 
 function App() {
+  const [birthdays, setBirthdays] = useState([
+    { name: "Kishan Sheth", date: "21 APril" },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles />
+      <Navbar />
+      <Switch>
+        <Route path="/addbirthday">
+          <AddBirthday birthdays={birthdays} setBirthdays={setBirthdays} />
+        </Route>
+        <Route path="/">
+          <Birthday birthdays={birthdays} />
+        </Route>
+      </Switch>
+    </>
   );
 }
 
