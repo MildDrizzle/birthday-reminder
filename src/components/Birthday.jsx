@@ -1,15 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+import men1 from "../avatar/girls/5.png";
 
 const Birthday = ({ birthdays }) => {
   return (
     <StyledCards>
+      <h1>All Birthdays</h1>
       <StyledContainer>
-        <h1>All Birthdays</h1>
         {birthdays.map((birthday) => (
           <StyledCard key={birthday.id}>
-            <h3>{birthday.name}</h3>
-            <p>{birthday.date}</p>
+            <div>
+              <span>
+                <img src={men1} alt="" />
+              </span>
+              <span>
+                <h3>{birthday.name}</h3>
+                <p>{birthday.date}</p>
+              </span>
+            </div>
           </StyledCard>
         ))}
       </StyledContainer>
@@ -22,11 +30,16 @@ const StyledCards = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  h1 {
+    color: white;
+    text-transform: uppercase;
+  }
 `;
 
 const StyledContainer = styled.div`
+  min-height: 10rem;
   width: 40%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,20 +47,41 @@ const StyledContainer = styled.div`
 `;
 
 const StyledCard = styled.div`
-  background: rgba(255, 255, 255, 1);
+  min-height: 6rem;
+  background: rgba(111, 0, 255, 0.7);
   width: 60%;
   margin: 0.2rem;
-  border-radius: 20rem;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
+  div {
+    display: flex;
+    align-items: center;
+  }
+  span:first-of-type {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50rem;
+    overflow: hidden;
+    margin-left: 0.3rem;
+  }
+  span > img {
+    height: 4rem;
+    width: 4rem;
+    /* padding-right: 0.3rem; */
+    margin: 10px 10px 10px 10px;
+    display: block;
+  }
   h3 {
-    margin: 0.1rem;
+    margin: 0.1rem 1rem;
+    color: white;
+    text-transform: uppercase;
   }
   p {
-    margin: 0;
+    margin: 0.1rem 1rem;
+    color: white;
+    text-transform: uppercase;
   }
 `;
 

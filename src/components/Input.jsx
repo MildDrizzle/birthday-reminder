@@ -16,6 +16,7 @@ const Input = ({ id, type, value, placeholder, setName }) => {
 
 const StyledDiv = styled.div`
   width: 30%;
+
   height: 56px;
   position: relative;
   background-color: rgba(255, 255, 255, 0.3);
@@ -27,6 +28,7 @@ const StyledDiv = styled.div`
   }
 
   input {
+    overflow: hidden;
     width: 100%;
     height: 56px;
     position: relative;

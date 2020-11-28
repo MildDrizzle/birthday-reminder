@@ -16,8 +16,8 @@ const AddBirthday = ({ birthdays, setBirthdays }) => {
 
   return (
     <div>
-      <h3>Add birthday</h3>
       <StyledForm onSubmit={handleFormSubmit}>
+        <h1>Add birthday</h1>
         <Input
           value={name}
           placeholder="Name"
@@ -43,6 +43,30 @@ const StyledForm = styled.form`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  h1 {
+    text-transform: uppercase;
+    color: white;
+  }
+  input[type="date"]::-webkit-datetime-edit-text {
+    color: white;
+    padding: 0 0.3em;
+  }
+
+  input[type="date"]::-webkit-datetime-edit-month-field {
+    color: white;
+  }
+  input[type="date"]::-webkit-datetime-edit-day-field {
+    color: white;
+  }
+  input[type="date"]::-webkit-datetime-edit-year-field {
+    color: white;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-right: 2rem;
+    /* color: orange; */
+    //display: none;
+  }
 `;
 
 const StyledButton = styled.button`
