@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import male from "../avatar/boys/5.png";
 import female from "../avatar/girls/4.png";
 
-const Birthday = ({ birthdays }) => {
+const Birthday = ({ birthdays, setBirthdays }) => {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const sortByMonth = () => {
+    const birthdaysVar = [...birthdays].sort(function (a, b) {
+      return new Date(a.date) - new Date(b.date);
+    });
+    return birthdaysVar;
+  };
+
+  useEffect(() => {
+    setBirthdays(sortByMonth());
+  }, [birthdays, setBirthdays]);
+
   return (
     <StyledCards>
       <h1>All Birthdays</h1>
@@ -16,7 +41,9 @@ const Birthday = ({ birthdays }) => {
               </span>
               <span>
                 <h3>{birthday.name}</h3>
-                <p>{birthday.date}</p>
+                <p>
+                  {birthday.day} {months[birthday.month - 1]}
+                </p>
               </span>
             </div>
           </StyledCard>

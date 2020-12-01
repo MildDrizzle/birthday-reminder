@@ -9,6 +9,7 @@ const Input = ({ id, type, value, placeholder, setName }) => {
         value={value}
         placeholder={placeholder}
         onChange={(event) => setName(event.target.value)}
+        required
       />
     </StyledDiv>
   );

@@ -12,6 +12,24 @@ const Navbar = () => {
         <Link to="/addbirthday">
           <StyledLi>Add Birthdays</StyledLi>
         </Link>
+        <Link to="/upcoming">
+          <StyledLi>Upcoming Birthdays</StyledLi>
+        </Link>
+        <Link to="/today">
+          <StyledLi>Today</StyledLi>
+        </Link>
+        <Link to="/tommorow">
+          <StyledLi>Tommorow</StyledLi>
+        </Link>
+        <Link to="/nextyear">
+          <StyledLi>Next Year</StyledLi>
+        </Link>
+        <Link to="/nextmonth">
+          <StyledLi>Next Month</StyledLi>
+        </Link>
+        <Link to="/nextyear">
+          <StyledLi>Next Year</StyledLi>
+        </Link>
       </StyledUl>
     </StyledNav>
   );
