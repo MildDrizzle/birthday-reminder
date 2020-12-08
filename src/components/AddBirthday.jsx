@@ -11,13 +11,8 @@ const AddBirthday = ({ birthdays, setBirthdays }) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const dt = new Date(date);
-    const day = dt.getDate();
-    const month = dt.getMonth() + 1;
     const gender = await detect(`${name.split(" ")[0]}`);
-    setBirthdays([
-      ...birthdays,
-      { id: uuidv4(), name, day, month, gender, date: dt },
-    ]);
+    setBirthdays([...birthdays, { id: uuidv4(), name, gender, date: dt }]);
     setName("");
     setDate("");
   };

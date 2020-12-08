@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import male from "../avatar/boys/5.png";
 import female from "../avatar/girls/4.png";
 
-const Birthday = ({ birthdays, setBirthdays }) => {
+const Tommorow = ({ birthdays, setBirthdays }) => {
   const months = [
     "January",
     "February",
@@ -18,23 +18,28 @@ const Birthday = ({ birthdays, setBirthdays }) => {
     "November",
     "December",
   ];
-  const sortByMonth = () => {
-    const birthdaysVar = [...birthdays].sort(function (a, b) {
-      return new Date(a.date) - new Date(b.date);
-    });
-    return birthdaysVar;
+  const [birthdaysTommorow, setBirthdaysTommorow] = useState([]);
+  const calculateBirthdayToday = () => {
+    const tomorrow = new Date().getDate();
+    tomorrow.setDate(new Date().getDate() + 1);
+    tomorrow = `${tomorrow.getDate()}/${tomorrow.getMonth() + 1}`;
+    console.log(tomorrow);
+
+    const calculatedBirthdays = birthdays.filter(
+      (birthday) => birthday.date.getDate() === tomorrow
+    );
+    setBirthdaysTommorow(calculatedBirthdays);
   };
 
   useEffect(() => {
-    setBirthdays(sortByMonth());
-    console.log(birthdays);
+    calculateBirthdayToday();
   }, []);
 
   return (
     <StyledCards>
-      <h1>All Birthdays</h1>
+      <h1>Birthdays Tommorow</h1>
       <StyledContainer>
-        {birthdays.map((birthday) => (
+        {birthdaysTommorow.map((birthday) => (
           <StyledCard key={birthday.id}>
             <div>
               <span>
@@ -114,4 +119,4 @@ const StyledCard = styled.div`
   }
 `;
 
-export default Birthday;
+export default Tommorow;
