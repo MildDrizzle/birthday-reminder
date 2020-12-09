@@ -20,13 +20,15 @@ const Tommorow = ({ birthdays, setBirthdays }) => {
   ];
   const [birthdaysTommorow, setBirthdaysTommorow] = useState([]);
   const calculateBirthdayToday = () => {
-    const tomorrow = new Date().getDate();
-    tomorrow.setDate(new Date().getDate() + 1);
+    let tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
     tomorrow = `${tomorrow.getDate()}/${tomorrow.getMonth() + 1}`;
     console.log(tomorrow);
 
     const calculatedBirthdays = birthdays.filter(
-      (birthday) => birthday.date.getDate() === tomorrow
+      (birthday) =>
+        `${birthday.date.getDate()}/${birthday.date.getMonth() + 1}` ===
+        tomorrow
     );
     setBirthdaysTommorow(calculatedBirthdays);
   };
